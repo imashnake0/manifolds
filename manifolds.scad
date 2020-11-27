@@ -1,11 +1,15 @@
-a = [1, 1, 0]; //Enter first vector - 3blue
-b = [1, 0, 1]; //Enter second vector - 1brown
+a = [50, 0, 50]; //Enter first vector - 3blue
+b = [-50, 0, -50]; //Enter second vector - 1brown
+c = [0, 50, -50];
+d = [0, -50, 50];
 
 //REMOVE "//" TO USE
 
 //VECTORS
-//vector(a[0], a[1], a[2]);
-//vector(b[0], b[1], b[2]);
+%vector(a[0], a[1], a[2]);
+%vector(b[0], b[1], b[2]);
+#vector(c[0], c[1], c[2]);
+#vector(d[0], d[1], d[2]);
 
 //ADDITION
 //add(a, b);
@@ -14,29 +18,29 @@ b = [1, 0, 1]; //Enter second vector - 1brown
 //echo(str("𝗮 ⋅ 𝗯 = ", dot(a, b)));
 
 //PROJECTION
-//projection(a, b);
+//
 //projection(b, a);
 
 //CROSS PRODUCT
 //cross(a, b);
 
-//MATRIX MULTIPLICATION + TRANSFORMATION
-//mirror([1, 1, 0]){
+//TRANSFORMATIONS
+
 mat(
     [
-        [1 + $t*(3), 0 + $t*(-3), 0 + $t*(2)]   ,
-        [0 + $t*(-2), 1 + $t*(-1), 0 + $t*(1)]   ,
-        [0 + $t*(2), 0 + $t*(1), 1 + $t*(-3)]
+        [1 + $t*(0), 0 + $t*(-1), 0 + $t*(-1)]   ,
+        [0 + $t*(0), 1 + $t*(1), 0 + $t*(0)]   ,
+        [0 + $t*(-1), 0 + $t*(-1), 1 + $t*(0)]
     ]
-    ,   [1, 1, 1]
+    ,   [0, 5, -5]
 );
-//}
 
-//350
 
-$vpt = [0, 0, 0];
-$vpr = [67, 0, 149 + $t*(30)];
-$vpd = 20 + $t*(30);
+//200
+
+//$vpt = [0, 0, 0];
+//$vpr = [ 39.00, 0.00, 151.80 ]; //[67, 0, 149 + $t*(30)];
+//$vpd = 43.17; //8 + $t*(25);
 
 function magnitude(v1) = sqrt(v1[0]*v1[0] + v1[1]*v1[1] + v1[2]*v1[2]);
 
