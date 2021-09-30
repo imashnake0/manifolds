@@ -48,8 +48,8 @@
 
 //echo(str());
 
-u = [1, 1, 1];
-v = [-1, -2, 4];
+u = [2, 6, 4];
+v = [8, 4, 0];
 vector(u[0], u[1], u[2]);
 vector(v[0], v[1], v[2]);
 rishisRotationProblem(u, v);
@@ -58,43 +58,43 @@ rishisRotationProblem(u, v);
 module rishisRotationProblem(u, v){
     //Normalize u
     normalU = normalized(u);
-    echo(magnitude(normalU));
+    //echo(magnitude(normalU));
     
     //Normalize (u × v) × u 
     normalUCrossVCrossU = normalized(crossproduct(crossproduct(u, v), u));
-    echo(magnitude(normalUCrossVCrossU));
+    //echo(magnitude(normalUCrossVCrossU));
 
     //Normalize u × v
     normalUCrossV = normalized(crossproduct(u, v));
-    echo(magnitude(normalUCrossV));
+    //echo(magnitude(normalUCrossV));
 
     //Checking Angles:
-    echo(acos(dot(normalU, normalUCrossVCrossU)/(magnitude(normalU)*magnitude(normalUCrossVCrossU))));
-    echo(acos(dot(normalU, normalUCrossV)/(magnitude(u)*magnitude(normalUCrossV))));
-    echo(acos(dot(normalUCrossV, normalUCrossVCrossU)/(magnitude(normalUCrossV)*magnitude(normalUCrossVCrossU))));
+    //echo(acos(dot(normalU, normalUCrossVCrossU)/(magnitude(normalU)*magnitude(normalUCrossVCrossU))));
+    //echo(acos(dot(normalU, normalUCrossV)/(magnitude(u)*magnitude(normalUCrossV))));
+    //echo(acos(dot(normalUCrossV, normalUCrossVCrossU)/(magnitude(normalUCrossV)*magnitude(normalUCrossVCrossU))));
 
     //Inverse of change of basis matrix
     cobInverse = [normalU, normalUCrossVCrossU, normalUCrossV];
-    echo(matDet(cobInverse));
+    //echo(matDet(cobInverse));
 
     //Change of basis matrix
     cob = matInverse(cobInverse);
-    echo(matDet(cob));
+    //echo(matDet(cob));
 
     //Angle between u and v
     phi = -acos(dot(u, v)/(magnitude(u)*magnitude(v)));
-    echo(phi);
+    //echo(phi);
 
     //Rotation matrix
     matRotation = [[cos(phi), sin(phi), 0], [-sin(phi), cos(phi), 0], [0, 0, 1]];
-    echo(matDet(matRotation));
+    //echo(matDet(matRotation));
 
     twoMat = matTimesMat(matRotation, cobInverse);
-    echo(matDet(twoMat));
+    //echo(matDet(twoMat));
 
     //threeMat = matTimesMat(cobInverse, twoMat);
     threeMat = matTimesMat(cob, twoMat);
-    echo(matDet(threeMat));
+    //echo(matDet(threeMat));
 
     mat(
         [
